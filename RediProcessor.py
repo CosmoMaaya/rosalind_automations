@@ -28,9 +28,9 @@ SAVE_PATH = "C:/Users/Bloomberg/Dropbox (Rosalind Advisors)/_ROSALIND Operations
 SEC_FEE_CHANGE_DATE = "2020-02-18"
 SEC_FEE = 20.70 if date.today().strftime("%Y-%m-%d") < SEC_FEE_CHANGE_DATE else 22.10
 
-FIVE_DP = Decimal('0.00000')
-SIX_DP = Decimal('0.000000')
-TWO_DP = Decimal('0.00')
+# FIVE_DP = Decimal('0.00000')
+# SIX_DP = Decimal('0.000000')
+# TWO_DP = Decimal('0.00')
 
 
 class RediProcessor:
@@ -73,7 +73,7 @@ class RediProcessor:
         return rearranged_col
 
     def process_data(self, df):
-        df['Price'] = df.apply(lambda arrLike: Decimal(str(arrLike['Price'])).quantize(FIVE_DP) if pd.isna(arrLike['Put/Call']) else Decimal(str(arrLike['Price'])).quantize(SIX_DP), axis=1)
+        df['Price'] = df.apply(lambda arrLike: round(arrLike['Price'], 5) if pd.isna(arrLike['Put/Call']) else round(arrLike['Price'], 6), axis=1)
         df['Date'] = pd.to_datetime(df['Date']).dt.date
 
         df['Order'] = df['Order'].transform(lambda x: self.__order_change(x))
@@ -96,9 +96,9 @@ class RediProcessor:
                                                        if not pd.isna(arrLike['Put/Call'])
                                                        else arrLike['Total Cost (Comm not included)'], axis=1)
         df['Total Cash Change (Comm included)'] = df.apply(lambda arrLike:
-                                                        (-1) * (arrLike['Price'] + arrLike['Comm'] + arrLike['SEC Fee']) * arrLike['Shares']
+                                                        (-1) * (arrLike['Price'] + arrLike['Comm']) * arrLike['Shares']
                                                         if arrLike['Order'] == "BOUGHT"
-                                                        else (arrLike['Price'] - arrLike['Comm'] - arrLike['SEC Fee']) * arrLike['Shares'],
+                                                        else (arrLike['Price'] - arrLike['Comm']) * arrLike['Shares'] - float(Decimal(arrLike['SEC Fee'] * arrLike['Shares']).quantize(Decimal('.01'), rounding=ROUND_UP)),
                                                         axis=1)
 
         print(df)
@@ -120,9 +120,9 @@ class RediProcessor:
         if pd.isna(option):
             if side == "BOUGHT":
                 if price >= 1:
-                    return Decimal('0.008')
+                    return 0.008
                 else:
-                    return Decimal('0.005')
+                    return 0.005
             else:
                 if price >= 1:
                     return 0.008

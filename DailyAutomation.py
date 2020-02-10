@@ -61,7 +61,7 @@ else:
     sandbox_porc = RediProcessor(REDI_PATH.format(date=(datetime.today() - timedelta(days=2)).strftime('%Y%m%d')),
                                  save_path=SANDBOX_SAVE_PATH)
 
-# processor.redi_process()
+processor.redi_process()
 sandbox_porc.redi_process()
 
 #
