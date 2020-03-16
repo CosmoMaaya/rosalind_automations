@@ -5,7 +5,7 @@ import numpy as np
 import os
 import pandas as pd
 
-from DataAnalysisProcessor import USER_ORIGIN
+from DataAnalysisProcessor import USER_ORIGIN, FILE_ORIGIN
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_colwidth', 100)
@@ -25,8 +25,7 @@ COLUMNS_CORRES_NAME = {"Exec Date": "Date",
 ARRANGED_COLS = ['Date', 'Ticker', 'Order', 'Shares', 'Price', 'Comm', 'SEC Fee', 'Description', 'Total Cost (Comm not included)',
                  'Put/Call', 'Currency', 'Total Cash Change (Comm included)', 'As Of Date', 'Broker']
 
-SAVE_PATH = USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/" \
-                          "Data Analytics/Trade Execution File/TD Execution Report_{date}.xlsx"
+SAVE_PATH = FILE_ORIGIN + "Trade Execution File/TD Execution Report_{date}.xlsx"
 
 SEC_FEE_CHANGE_DATE = "2020-02-18"
 SEC_FEE = 20.70 if date.today().strftime("%Y-%m-%d") < SEC_FEE_CHANGE_DATE else 22.10
