@@ -2,11 +2,12 @@ import os
 import pandas as pd
 import pymysql
 import re
+import sys
 from datetime import datetime, timedelta
 
 SPECIAL_DATE_FORMAT = ["TDER origin", "TD Average Price Report"]
 
-FILE_ORIGIN = os.getcwd() + "/../"
+FILE_ORIGIN = sys.path[0] + "/../"
 USER_ORIGIN = os.environ['USERPROFILE']
 
 FILEPATHS = {
@@ -147,7 +148,6 @@ class DataAnalysisProcessor:
 
     Attributes:
         file: String of name of the file that is going to be processed, must be listed in both dict above
-        file_type: String of the type of files you want to read, csv or excel
         from_date: String of date user wants to read from, in format of 'yyyy-mm-dd‘
         end_date: SString of date user wants to read to, in format of 'yyyy-mm-dd
     """

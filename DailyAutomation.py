@@ -86,4 +86,3 @@ if 1 <= todayWeekday <= 5:
         # dbImporter.load_csv(csv_path, file)
 
     dbImporter.close()
-
