@@ -4,14 +4,14 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-USER_ORIGIN = os.getcwd()
+from RediProcessor import FILE_ORIGIN
 
 def ftp_download():
-    service = Service(USER_ORIGIN + 'chromedriver')
-    service.start()
-    driver = webdriver.Remote(service.service_url)
+    # service = Service(FILE_ORIGIN + '/chromedriver')
+    # service.start()
+    driver = webdriver.Chrome(FILE_ORIGIN + 'Automations/chromedriver')
 
-    driver.get('https://tdsecurities.ftptoday.com/');
+    driver.get('https://tdsecurities.ftptoday.com/')
 
     # username = driver.find_element_by_xpath("/html/body[@class='exterior']/div[@id='exterior-wrap']/div[@id='exterior-content']/div[@id='exterior-middle']/div/div[@class='q-form q-form-vertical']/form[@id='login']/div[@class='q-form-controls']/div[@id='u-wrap']/div[@class='q-form-control']/input[@id='u']")
 
@@ -42,3 +42,7 @@ def ftp_download():
         time.sleep(1)
 
     driver.quit()
+
+
+print (FILE_ORIGIN + 'chromedriver')
+ftp_download()
