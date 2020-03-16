@@ -67,27 +67,5 @@ else:
 processor.redi_process()
 sandbox_porc.redi_process()
 
-
-dbImporter = DbImporter(**config)
-
-cdate = datetime.strptime(dateString, "%m-%d-%Y")
-dateString = datetime.strftime(cdate, "%Y-%m-%d")
-
-if 1 <= todayWeekday <= 5:
-    for file in FILETYPES:
-        print("Processing {}".format(file))
-        processor = DataAnalysisProcessor(file, dateString, dateString)
-        if file == "TD Execution Report":
-            df = processor.read("Sheet1")
-        else:
-            df = processor.read()
-        processor.write_csv(df, dateString)
-
-        csv_path = re.sub(r'\.xls[x,m]?$', '.csv', FILEPATHS[file].format(date=datetime.strftime(cdate, "%m-%d-%Y")))
-        print(csv_path)
-        # dbImporter.load_csv(csv_path, file)
-
-    dbImporter.close()
-
 input("Press enter to exit ;")
 

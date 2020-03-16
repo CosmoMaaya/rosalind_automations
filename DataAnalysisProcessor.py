@@ -1,20 +1,28 @@
+import os
 import pandas as pd
 import pymysql
 import re
 from datetime import datetime, timedelta
 
 SPECIAL_DATE_FORMAT = ["TDER origin", "TD Average Price Report"]
+USER_ORIGIN = os.environ['USERPROFILE']
 
 FILEPATHS = {
-    "TradeActivity": "C:/Users/Bloomberg/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                     "Data Analytics/Trade Reports/TradeActivity_{date}.xls",
-    "TD Execution Report": "C:/Users/Bloomberg/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                           "Data Analytics/Trade Execution File/TD Execution Report_{date}.xlsx",
-    "Balances": "C:/Users/Bloomberg/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
+    "TradeActivity": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
+                                   "Data Analytics/Trade Reports/TradeActivity_{date}.xls",
+    "TD Execution Report": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
+                                         "Data Analytics/Trade Execution File/TD Execution Report_{date}.xlsx",
+    "Balances": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
                 "Data Analytics/Account Balances/Balances_{date}.xls",
-    "Positions": "C:/Users/Bloomberg/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
+    "Positions": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
                  "Data Analytics/Positions/Positions_{date}.xls",
-    "TDER origin": "C:/Users/Bloomberg/Downloads/TD Execution Report{date}.csv"
+    "TDER origin": USER_ORIGIN + "/Downloads/TD Execution Report{date}.csv",
+    "Accruals": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
+                "Data Analytics/Accruals/Accruals_{date}.xls",
+    "LoanFees": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
+                "Data Analytics/LoanFees/LoanFees_{date}.xls",
+    "Finance": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
+                "Data Analytics/Finance/Finance_{date}.xls",
 }
 
 FORMAT_REMAP = {
@@ -36,11 +44,15 @@ FILECOLUMNS = {
                     "CUSIP", "Sedol",	"ISIN",	"Description", "Product", "Execution Date Time", "Side",
                     "Total Quantity", "Execution Price", "Account Number", "Account Alias", "Exchange",
                     "Execution Broker", "Underlier", "Put/Call", "Strike Price", "Option Expiration Date", "Open/Close"],
-    "TD Average Price Report": ["Exec Date", "Trade Date", "Settlement Date", "Symbol", "Bloomberg Symbol", "RIC",
-                                "CUSIP", "Sedol", "ISIN", "Description", "Product", "Side", "Total Quantity",
-                                "Average Price", "Allocation Account Number", "Allocation Account Alias",
-                                "Execution Broker", "Underlier", "Put/Call", "Strike Price", "Expiration Date",
-                                "Open/Close"]
+    # "TD Average Price Report": ["Exec Date", "Trade Date", "Settlement Date", "Symbol", "Bloomberg Symbol", "RIC",
+    #                             "CUSIP", "Sedol", "ISIN", "Description", "Product", "Side", "Total Quantity",
+    #                             "Average Price", "Allocation Account Number", "Allocation Account Alias",
+    #                             "Execution Broker", "Underlier", "Put/Call", "Strike Price", "Expiration Date",
+    #                             "Open/Close"],
+    "Accruals": ["Acct ID", "Acct Name", "Acct Type", "ISM Code", "CUSIP", "Description", "Cpn Rate", "Maturity",
+                 "Last Cpn", "Next Cpn", "Qty", "Days Accrued", "Accrual"],
+    "LoanFees": ["Acct ID", "Acct Name", "Ccy", "Ticker", "Cusip", "Description", "Open Date", "Price", "Quantity", "Rate"],
+    "Finance": ["Acct ID", "Acct Name", "CCY", "Date", "Estimated S/D Balance", "Rate (%)", "Interest"]
 
 }
 
@@ -103,9 +115,29 @@ COLUMNTYPE = {
     "Total Quantity": "INT",
     "Symbol": "VARCHAR(32)",
     "Strike Price": "DECIMAL(10,5)",
-    "RIC": "VARCHAR(32)",
+    "RIC": "VARCHAR(32",
     "Exec Date": "DATE",
-    "Open/Close": "VARCHAR(16)"
+    "Open/Close": "VARCHAR(16)",
+
+    # Accrual
+    "Acct Name": "VARCHAR(64)",
+    "Cpn Rate": "INT",
+    "Maturity": "DATE",
+    "Last Cpn": "DATE",
+    "Next Cpn": "DATE",
+    "Days Accrued": "INT",
+    "Accrual": "DECIMAL(12,4)",
+
+    # LoanFees
+    "Quantity": "INT",
+    "Rate": "DECIMAL(10,5)",
+    "Open Date": "DATE",
+
+    # Finance
+    "CCY": "VARCHAR(16)",
+    "Interest": "DECIMAL(10,5)",
+    "Estimated S/D Balance": "DECIMAL(15,5)",
+    "Rate (%)": "DECIMAL(10,5)"
 }
 
 
@@ -181,6 +213,7 @@ class DataAnalysisProcessor:
 
 class DbImporter:
     def __init__(self, host, user, pwd, db, port):
+        self.db = db
         self.conn = pymysql.connect(
             host=host,
             user=user,
@@ -205,14 +238,14 @@ class DbImporter:
         create_sql = "CREATE TABLE IF NOT EXISTS `{table_name}` (" \
                      "{columns}" \
                      ");".format(table_name=table_name, columns=columns)
-        date_sql = "LOAD DATA LOCAL INFILE '{csv_file_path}' INTO TABLE `{table_name}` " \
+        data_sql = "LOAD DATA LOCAL INFILE '{csv_file_path}' INTO TABLE {db}.`{table_name}` " \
                    "FIELDS TERMINATED BY ',' " \
                    "LINES TERMINATED BY '\\r' " \
-                   "IGNORE 1 LINES".format(csv_file_path=csv_file_path, table_name=table_name)
+                   "IGNORE 1 LINES;".format(csv_file_path=csv_file_path, db=self.db, table_name=table_name)
         print(create_sql)
-        print(date_sql)
+        print(data_sql)
         self.cur.execute(create_sql)
-        self.cur.execute(date_sql)
+        self.cur.execute(data_sql)
         self.conn.commit()
 
     def close(self):
@@ -241,3 +274,5 @@ print(set(set(columns) - COLUMNTYPE.keys()))
 # # DataAnalysisProcessor("a", "a", "a", "a").read_single("a")
 #
 # # pd.read_excel("sd")
+
+

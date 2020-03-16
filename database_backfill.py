@@ -15,7 +15,10 @@ FILETYPES = {
     # "TradeActivity": "excel",
     # "Balances": "excel",
     # "Positions": "excel",
-    "TD Execution Report": "excel"
+    # "TD Execution Report": "excel",
+    "LoanFees": "excel",
+    "Accruals": "excel",
+    "Finance": "excel"
 }
 
 current_date = "2020-01-14"

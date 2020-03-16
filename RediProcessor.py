@@ -2,7 +2,10 @@ from datetime import date, timedelta
 from decimal import *
 from time import strptime, strftime
 import numpy as np
+import os
 import pandas as pd
+
+from DataAnalysisProcessor import USER_ORIGIN
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_colwidth', 100)
@@ -22,8 +25,8 @@ COLUMNS_CORRES_NAME = {"Exec Date": "Date",
 ARRANGED_COLS = ['Date', 'Ticker', 'Order', 'Shares', 'Price', 'Comm', 'SEC Fee', 'Description', 'Total Cost (Comm not included)',
                  'Put/Call', 'Currency', 'Total Cash Change (Comm included)', 'As Of Date', 'Broker']
 
-SAVE_PATH = "C:/Users/Bloomberg/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/" \
-            "Data Analytics/Trade Execution File/TD Execution Report_{date}.xlsx"
+SAVE_PATH = USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/" \
+                          "Data Analytics/Trade Execution File/TD Execution Report_{date}.xlsx"
 
 SEC_FEE_CHANGE_DATE = "2020-02-18"
 SEC_FEE = 20.70 if date.today().strftime("%Y-%m-%d") < SEC_FEE_CHANGE_DATE else 22.10
@@ -121,24 +124,32 @@ class RediProcessor:
             if side == "BOUGHT":
                 if price >= 1:
                     return 0.008
-                else:
+                elif 0 < price < 1:
                     return 0.005
+                else:
+                    return 0   #Sometimes there is some 0 price trades got picked up and it should calculate the comm fee
             else:
                 if price >= 1:
                     return 0.008
-                else:
+                elif 0 < price < 1:
                     return 0.005
+                else:
+                    return 0
         else:
             if side == "BOUGHT":
                 if price >= 1:
                     return 0.01
-                else:
+                elif 0 < price < 1:
                     return 0.007
+                else:
+                    return 0
             else:
                 if price >= 1:
                     return 0.01
-                else:
+                elif 0 < price < 1:
                     return 0.007
+                else:
+                    return 0
 
     def get_save_path(self):
         todayWeekday = date.today().weekday()
