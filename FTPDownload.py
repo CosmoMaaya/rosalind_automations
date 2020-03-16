@@ -44,5 +44,3 @@ def ftp_download():
     driver.quit()
 
 
-print (FILE_ORIGIN + 'chromedriver')
-ftp_download()
