@@ -2,27 +2,23 @@ import os
 import pandas as pd
 import pymysql
 import re
+import sys
 from datetime import datetime, timedelta
 
 SPECIAL_DATE_FORMAT = ["TDER origin", "TD Average Price Report"]
+
+FILE_ORIGIN = sys.path[0] + "/../"
 USER_ORIGIN = os.environ['USERPROFILE']
 
 FILEPATHS = {
-    "TradeActivity": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                                   "Data Analytics/Trade Reports/TradeActivity_{date}.xls",
-    "TD Execution Report": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                                         "Data Analytics/Trade Execution File/TD Execution Report_{date}.xlsx",
-    "Balances": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                "Data Analytics/Account Balances/Balances_{date}.xls",
-    "Positions": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                 "Data Analytics/Positions/Positions_{date}.xls",
+    "TradeActivity": FILE_ORIGIN + "Trade Reports/TradeActivity_{date}.xls",
+    "TD Execution Report": FILE_ORIGIN + "Trade Execution File/TD Execution Report_{date}.xlsx",
+    "Balances": FILE_ORIGIN + "Account Balances/Balances_{date}.xls",
+    "Positions": FILE_ORIGIN + "Positions/Positions_{date}.xls",
     "TDER origin": USER_ORIGIN + "/Downloads/TD Execution Report{date}.csv",
-    "Accruals": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                "Data Analytics/Accruals/Accruals_{date}.xls",
-    "LoanFees": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                "Data Analytics/LoanFees/LoanFees_{date}.xls",
-    "Finance": USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/"
-                "Data Analytics/Finance/Finance_{date}.xls",
+    "Accruals": FILE_ORIGIN + "Accruals/Accruals_{date}.xls",
+    "LoanFees": FILE_ORIGIN + "LoanFees/LoanFees_{date}.xls",
+    "Finance": FILE_ORIGIN + "/Finance/Finance_{date}.xls",
 }
 
 FORMAT_REMAP = {
@@ -152,7 +148,6 @@ class DataAnalysisProcessor:
 
     Attributes:
         file: String of name of the file that is going to be processed, must be listed in both dict above
-        file_type: String of the type of files you want to read, csv or excel
         from_date: String of date user wants to read from, in format of 'yyyy-mm-dd‘
         end_date: SString of date user wants to read to, in format of 'yyyy-mm-dd
     """

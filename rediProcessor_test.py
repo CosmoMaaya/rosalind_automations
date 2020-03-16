@@ -2,13 +2,11 @@ import pandas as pd
 import unittest
 
 from pandas.testing import assert_frame_equal
-from RediProcessor import RediProcessor, USER_ORIGIN
+from RediProcessor import RediProcessor, USER_ORIGIN, FILE_ORIGIN
 
-SAVE_PATH = USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/" \
-            "Data Analytics/Automations/Test File/Execution_Report.xlsx"
+SAVE_PATH = FILE_ORIGIN + "Automations/Test File/Execution_Report.xlsx"
 
-FROM_PATH = USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/" \
-            "Data Analytics/Automations/Test File/TD Execution ReportTDEX_Prx_Template_2016091.csv"
+FROM_PATH = FILE_ORIGIN + "Automations/Test File/TD Execution ReportTDEX_Prx_Template_2016091.csv"
 
 
 class MyTestCase(unittest.TestCase):

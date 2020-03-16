@@ -4,7 +4,7 @@ import time
 from datetime import timedelta, datetime
 from shutil import copyfile
 
-from DataAnalysisProcessor import DataAnalysisProcessor, DbImporter, FILEPATHS, USER_ORIGIN
+from DataAnalysisProcessor import DataAnalysisProcessor, DbImporter, FILEPATHS, USER_ORIGIN, FILE_ORIGIN
 from FTPDownload import ftp_download
 from RediProcessor import RediProcessor
 
@@ -30,13 +30,11 @@ config = {
 FILETYPES = ["TradeActivity", "Balances", "Positions", "TD Execution Report", "LoanFees", "Accruals", "Finance"]
 
 path_origin = USER_ORIGIN + "/Downloads/{file_type}_{date}.xls"
-path_destination = USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/" \
-                   "Data Analytics/{folder}/{file_type}_{date}.xls"
+path_destination = FILE_ORIGIN + "{folder}/{file_type}_{date}.xls"
 
 REDI_PATH = USER_ORIGIN + "/Downloads/TD Execution Report{date}.csv"
 
-SANDBOX_SAVE_PATH = USER_ORIGIN + "/Dropbox (Rosalind Advisors)/_ROSALIND Operations - SHARED/" \
-            "Data Analytics/Trade Execution File/TD Execution Report_{date}_Sandbox.xlsx"
+SANDBOX_SAVE_PATH = FILE_ORIGIN + "Trade Execution File/TD Execution Report_{date}_Sandbox.xlsx"
 
 
 def copyFiles(dateString):
@@ -91,4 +89,3 @@ if 1 <= todayWeekday <= 5:
         # dbImporter.load_csv(csv_path, file)
 
     dbImporter.close()
-
