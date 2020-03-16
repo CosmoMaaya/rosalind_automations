@@ -9,7 +9,7 @@ from RediProcessor import FILE_ORIGIN
 def ftp_download():
     # service = Service(FILE_ORIGIN + '/chromedriver')
     # service.start()
-    driver = webdriver.Chrome(FILE_ORIGIN + 'Automations/chromedriver')
+    driver = webdriver.Chrome(FILE_ORIGIN + 'Automations/chromedriver.exe')
 
     driver.get('https://tdsecurities.ftptoday.com/')
 
