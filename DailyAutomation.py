@@ -89,5 +89,3 @@ if 1 <= todayWeekday <= 5:
 
     dbImporter.close()
 
-input("Press enter to exit ;")
-
