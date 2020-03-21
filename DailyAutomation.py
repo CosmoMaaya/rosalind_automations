@@ -5,6 +5,7 @@ from datetime import timedelta, datetime
 from shutil import copyfile
 
 from DataAnalysisProcessor import DataAnalysisProcessor, DbImporter, FILEPATHS, USER_ORIGIN, FILE_ORIGIN
+from FTPDownload import ftp_download
 from RediProcessor import RediProcessor
 
 todayWeekday = datetime.today().weekday()
@@ -42,6 +43,8 @@ def copyFiles(dateString):
             copyfile(path_origin.format(file_type=fileType, date=dateString), path_destination.format(
                 folder=DestFolder[fileType], file_type=fileType, date=dateString))
 
+
+ftp_download()
 
 if 1 <= todayWeekday <= 5:
     dateString = (datetime.today() - timedelta(days=1)).strftime('%m-%d-%Y')
