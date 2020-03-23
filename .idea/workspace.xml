@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3129e006-d54f-4ad5-a04a-416994b06ec6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Automations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Automations.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/covid/COVID_importer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FTPDownload.py" beforeDir="false" afterPath="$PROJECT_DIR$/FTPDownload.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/python" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/bin/python3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/bin/python3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib64" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib64" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment.bat" beforeDir="false" afterPath="$PROJECT_DIR$/environment.bat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,9 +30,42 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.DailyAutomation">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Dropbox (Rosalind Advisors)\_ROSALIND Operations - SHARED\Data Analytics\Automations" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.COVID_importer">
+    <configuration name="COVID_importer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Automations" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/covid" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/covid/COVID_importer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="DailyAutomation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Automations" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -76,6 +112,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.COVID_importer" />
         <item itemvalue="Python.DailyAutomation" />
         <item itemvalue="Python.FTPDownload" />
       </list>
@@ -92,6 +129,10 @@
       <option name="presentableId" value="Default" />
       <updated>1584393188610</updated>
       <workItem from="1584393191270" duration="641000" />
+      <workItem from="1584967246506" duration="9607000" />
+      <workItem from="1584979515384" duration="1569000" />
+      <workItem from="1584985470105" duration="679000" />
+      <workItem from="1584991117146" duration="47000" />
     </task>
     <servers />
   </component>
@@ -99,32 +140,58 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1342" height="208" key="GridCell.Tab.0.bottom" timestamp="1584393834451">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state x="500" y="201" key="FileChooserDialogImpl" timestamp="1584967270552">
+      <screen x="0" y="0" width="1468" height="864" />
     </state>
+    <state x="500" y="201" key="FileChooserDialogImpl/0.0.1468.864@0.0.1468.864" timestamp="1584967270552" />
+    <state width="1425" height="223" key="GridCell.Tab.0.bottom" timestamp="1584991163414">
+      <screen x="0" y="0" width="1468" height="864" />
+    </state>
+    <state width="1425" height="223" key="GridCell.Tab.0.bottom/0.0.1468.864@0.0.1468.864" timestamp="1584991163414" />
     <state width="1342" height="208" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1584393834451" />
-    <state width="1342" height="208" key="GridCell.Tab.0.center" timestamp="1584393834451">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state width="1425" height="223" key="GridCell.Tab.0.center" timestamp="1584991163414">
+      <screen x="0" y="0" width="1468" height="864" />
     </state>
+    <state width="1425" height="223" key="GridCell.Tab.0.center/0.0.1468.864@0.0.1468.864" timestamp="1584991163414" />
     <state width="1342" height="208" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1584393834451" />
-    <state width="1342" height="208" key="GridCell.Tab.0.left" timestamp="1584393834451">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state width="1425" height="223" key="GridCell.Tab.0.left" timestamp="1584991163414">
+      <screen x="0" y="0" width="1468" height="864" />
     </state>
+    <state width="1425" height="223" key="GridCell.Tab.0.left/0.0.1468.864@0.0.1468.864" timestamp="1584991163414" />
     <state width="1342" height="208" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1584393834451" />
-    <state width="1342" height="208" key="GridCell.Tab.0.right" timestamp="1584393834451">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state width="1425" height="223" key="GridCell.Tab.0.right" timestamp="1584991163414">
+      <screen x="0" y="0" width="1468" height="864" />
     </state>
+    <state width="1425" height="223" key="GridCell.Tab.0.right/0.0.1468.864@0.0.1468.864" timestamp="1584991163414" />
     <state width="1342" height="208" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1584393834451" />
+    <state width="1425" height="277" key="GridCell.Tab.1.bottom" timestamp="1584979501676">
+      <screen x="0" y="0" width="1468" height="864" />
+    </state>
+    <state width="1425" height="277" key="GridCell.Tab.1.bottom/0.0.1468.864@0.0.1468.864" timestamp="1584979501676" />
+    <state width="1425" height="277" key="GridCell.Tab.1.center" timestamp="1584979501676">
+      <screen x="0" y="0" width="1468" height="864" />
+    </state>
+    <state width="1425" height="277" key="GridCell.Tab.1.center/0.0.1468.864@0.0.1468.864" timestamp="1584979501676" />
+    <state width="1425" height="277" key="GridCell.Tab.1.left" timestamp="1584979501676">
+      <screen x="0" y="0" width="1468" height="864" />
+    </state>
+    <state width="1425" height="277" key="GridCell.Tab.1.left/0.0.1468.864@0.0.1468.864" timestamp="1584979501676" />
+    <state width="1425" height="277" key="GridCell.Tab.1.right" timestamp="1584979501676">
+      <screen x="0" y="0" width="1468" height="864" />
+    </state>
+    <state width="1425" height="277" key="GridCell.Tab.1.right/0.0.1468.864@0.0.1468.864" timestamp="1584979501676" />
     <state x="298" y="83" key="SettingsEditor" timestamp="1584393214878">
       <screen x="0" y="0" width="1472" height="864" />
     </state>
     <state x="298" y="83" key="SettingsEditor/0.0.1472.864@0.0.1472.864" timestamp="1584393214878" />
-    <state x="477" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1584393196782">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state x="476" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1584991117379">
+      <screen x="0" y="0" width="1468" height="864" />
     </state>
+    <state x="476" y="265" key="com.intellij.ide.util.TipDialog/0.0.1468.864@0.0.1468.864" timestamp="1584991117379" />
     <state x="477" y="265" key="com.intellij.ide.util.TipDialog/0.0.1472.864@0.0.1472.864" timestamp="1584393196782" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Automations$COVID_importer.coverage" NAME="COVID_importer Coverage Results" MODIFIED="1584991119829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/covid" />
     <SUITE FILE_PATH="coverage/Automations$FTPDownload.coverage" NAME="FTPDownload Coverage Results" MODIFIED="1584393489983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Automations$DailyAutomation.coverage" NAME="DailyAutomation Coverage Results" MODIFIED="1584393744690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
