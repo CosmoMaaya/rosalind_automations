@@ -34,13 +34,13 @@ def ftp_download():
 
     sort = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/form/div/table/thead/tr/th[5]/a")
     sort.click()
-    time.sleep(1)
+    time.sleep(3)
 
     for i in range(2, 10):
         file = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/div[2]/div/div[5]/div/div/div/form/div/table/tbody/tr[{}]/td[2]/a".format(i))
         file.click()
-        time.sleep(1)
+        time.sleep(3)
 
     driver.quit()
 
-
+ftp_download()

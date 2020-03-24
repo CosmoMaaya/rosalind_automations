@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3129e006-d54f-4ad5-a04a-416994b06ec6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/covid/COVID_importer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Automations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Automations.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment.bat" beforeDir="false" afterPath="$PROJECT_DIR$/environment.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FTPDownload.py" beforeDir="false" afterPath="$PROJECT_DIR$/FTPDownload.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2761" />
+    <option name="y" value="7" />
+    <option name="width" value="2058" />
+    <option name="height" value="1343" />
+  </component>
   <component name="ProjectId" id="1ZE93YnYOV1PWbI5kTMbsr8ilSV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -43,7 +51,7 @@
       <recent name="C:\Users\Lenovo\Dropbox (Rosalind Advisors)\_ROSALIND Operations - SHARED\Data Analytics\Automations" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.COVID_importer">
+  <component name="RunManager" selected="Python.FTPDownload">
     <configuration name="COVID_importer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Automations" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -112,9 +120,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.FTPDownload" />
         <item itemvalue="Python.COVID_importer" />
         <item itemvalue="Python.DailyAutomation" />
-        <item itemvalue="Python.FTPDownload" />
       </list>
     </recent_temporary>
   </component>
@@ -133,6 +141,7 @@
       <workItem from="1584979515384" duration="1569000" />
       <workItem from="1584985470105" duration="679000" />
       <workItem from="1584991117146" duration="47000" />
+      <workItem from="1585048644533" duration="70000" />
     </task>
     <servers />
   </component>
@@ -180,15 +189,32 @@
       <screen x="0" y="0" width="1468" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.right/0.0.1468.864@0.0.1468.864" timestamp="1584979501676" />
-    <state x="298" y="83" key="SettingsEditor" timestamp="1584393214878">
-      <screen x="0" y="0" width="1472" height="864" />
-    </state>
-    <state x="298" y="83" key="SettingsEditor/0.0.1472.864@0.0.1472.864" timestamp="1584393214878" />
-    <state x="476" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1584991117379">
+    <state x="297" y="83" key="SettingsEditor" timestamp="1585048713856">
       <screen x="0" y="0" width="1468" height="864" />
     </state>
-    <state x="476" y="265" key="com.intellij.ide.util.TipDialog/0.0.1468.864@0.0.1468.864" timestamp="1584991117379" />
+    <state x="297" y="83" key="SettingsEditor/0.0.1468.864@0.0.1468.864" timestamp="1585048713856" />
+    <state x="298" y="83" key="SettingsEditor/0.0.1472.864@0.0.1472.864" timestamp="1584393214878" />
+    <state x="476" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585048658320">
+      <screen x="0" y="0" width="1468" height="864" />
+    </state>
+    <state x="476" y="265" key="com.intellij.ide.util.TipDialog/0.0.1468.864@0.0.1468.864" timestamp="1585048658320" />
     <state x="477" y="265" key="com.intellij.ide.util.TipDialog/0.0.1472.864@0.0.1472.864" timestamp="1584393196782" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FTPDownload.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FTPDownload.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Automations$COVID_importer.coverage" NAME="COVID_importer Coverage Results" MODIFIED="1584991119829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/covid" />
